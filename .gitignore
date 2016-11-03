@@ -1,0 +1,25 @@
+# History files
+.Rhistory
+
+# Example code in package build process
+*-Ex.R
+
+# R data files from past sessions
+.Rdata
+.Rproj.user
+
+# Folders containing data
+2011/*
+2012/*
+2013/*
+2014/*
+2015/*
+temp/*
+Combined/*
+HCLINIC-ALL-YEARS/*
+HOSP10FY2011/*
+HOSP10FY2012/*
+HOSP10FY2013/*
+HOSP10FY2014/*
+HOSP10FY2015/*
+
