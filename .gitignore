@@ -6,6 +6,7 @@
 
 # R data files from past sessions
 .Rdata
+.RData
 .Rproj.user
 
 # Folders containing data
@@ -22,4 +23,5 @@ HOSP10FY2012/*
 HOSP10FY2013/*
 HOSP10FY2014/*
 HOSP10FY2015/*
-
+src/*
+mapped/*
