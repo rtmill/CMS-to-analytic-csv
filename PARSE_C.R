@@ -400,6 +400,12 @@ build$TOTAL_DUE_TOFROM_MEDICARE <- with(tmp, tmp$VAL[match(build$RPT_REC_NUM,tmp
 
 # write.csv(build, "wc_mapped.csv", row.names = FALSE)
 
+# Change from character columns to integer
+
+for(i in 2:ncol(build)){
+  build[,i] <- as.character(build[,i])
+  build[,i] <- as.integer(build[,i])
+}
 
 
 

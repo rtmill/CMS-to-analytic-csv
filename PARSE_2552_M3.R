@@ -444,10 +444,20 @@ for(i in 1:nrow(temp)){
     temp$TOTAL_DUE_TOFROM_MEDICARE[i] <- z$VAL[1]
   }
   
-  
-  
-  
-  
 }
+
+
+
+# Change from character columns to integer
+
+for(i in 5:ncol(temp)){
+  temp[,i] <- as.integer(temp[,i])
+}
+
+
+
+
+
+
 
 

@@ -15,6 +15,10 @@ tmp <- both[both$WKSHT_CD == "S000001" & both$LINE_NUM == 100 & both$CLMN_NUM ==
 build <- data.frame(tmp$RPT_REC_NUM, tmp$VAL)
 names(build) <- c("RPT_REC_NUM", "NAME")
 
+# Get street
+tmp <- both[both$WKSHT_CD == "S000001" & both$LINE_NUM == 101 & both$CLMN_NUM == 100,]
+build$STREET <- with(tmp, tmp$VAL[match(build$RPT_REC_NUM, tmp$RPT_REC_NUM)])
+
 # Get city
 tmp <- both[both$WKSHT_CD == "S000001" & both$LINE_NUM == 102 & both$CLMN_NUM == 100,]
 build$CITY <- with(tmp, tmp$VAL[match(build$RPT_REC_NUM, tmp$RPT_REC_NUM)])

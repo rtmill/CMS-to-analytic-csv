@@ -2,6 +2,7 @@
 # - Assumes that you have a table of S8*R* worksheets labeled "s8" 
 
 s8$VAL <- as.character(s8$VAL)
+s8$WKSHT_CD <- as.character(s8$WKSHT_CD)
 temp <- unique(s8[c("RPT_REC_NUM", "WKSHT_CD")])
 
 temp$WKSHT_CD <- as.character(temp$WKSHT_CD)
@@ -10,15 +11,21 @@ for(i in 1:nrow(temp)){
   temp$SUBPROVIDER <- substr(temp$WKSHT_CD, 3, 3)
 }
 
-temp$WKSHT_CD <- as.factor(temp$WKSHT_CD)
+#temp$WKSHT_CD <- as.factor(temp$WKSHT_CD)
+
 
 temp$NAME <- ""
+temp$STREET <- ""
 temp$CITY <- ""
 temp$STATE <- ""
 temp$ZIP <- ""
 temp$COUNTY <- ""
 temp$CCN <- ""
+
+
 temp$TYPE_OF_CONTROL <- ""
+
+# Always NA here but needed to merge with independent
 temp$TYPE_OF_PROVIDER <- ""
 
 
@@ -49,6 +56,11 @@ temp$CONSOLIDATED <- ""
 for(i in 1:nrow(temp)){
   x <- s8[s8$RPT_REC_NUM == temp$RPT_REC_NUM[i] & s8$WKSHT_CD == temp$WKSHT_CD[i],]
   
+  # get Street
+  y <- x[x$LINE_NUM == 100 & x$CLMN_NUM == 100,]
+  if(nrow(y) > 0){
+    temp$STREET[i] <- y$VAL[1]
+  }
   
   # get City
   y <- x[x$LINE_NUM == 200 & x$CLMN_NUM == 100,]

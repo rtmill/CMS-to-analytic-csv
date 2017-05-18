@@ -16,6 +16,7 @@ for(i in 1:nrow(temp)){
 
 
 temp$NAME <- ""
+temp$STREET <- ""
 temp$CITY <- ""
 temp$STATE <- ""
 temp$ZIP <- ""
@@ -69,6 +70,12 @@ for(i in 1:nrow(temp)){
   y <- x[x$LINE_NUM == 100 & x$CLMN_NUM == 100,]
   if(nrow(y) > 0){
     temp$NAME[i] <- y$VAL[1]
+  }
+  
+  # get street
+  y <- x[x$LINE_NUM == 200 & x$CLMN_NUM == 100,]
+  if(nrow(y) > 0){
+    temp$STREET[i] <- y$VAL[1]
   }
 
   # get City
